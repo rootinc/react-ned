@@ -1,7 +1,7 @@
 import NedDictionary from './NedDictionary';
 import Ned from './Ned';
 
-export default {
+export {
   NedDictionary,
   Ned
 }
