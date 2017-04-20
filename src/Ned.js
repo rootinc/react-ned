@@ -55,7 +55,16 @@ class Ned extends Component {
 
     var ElementType = this.props.inputType || "span";
 
-    return React.createElement(ElementType,props,text);
+    if (this.props.format)
+    {
+      var element = React.createElement(ElementType,props);
+      element.dangerouslySetInnerHTML(text);
+      return element;
+    }
+    else
+    {
+      return React.createElement(ElementType,props,text);
+    }
   }
 }
 
