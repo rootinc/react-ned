@@ -19818,6 +19818,8 @@ var Ned = exports.Ned = function (_Component) {
     _this.state = {
       text: ""
     };
+
+    var dog;
     return _this;
   }
 
