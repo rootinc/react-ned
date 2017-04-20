@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-export class NedDictionary {
+export default class NedDictionary {
   constructor(properties) {
     window.ned = {};
     window.ned.NedDictionary = this;

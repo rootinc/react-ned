@@ -2,7 +2,6 @@
   "name": "react-ned",
   "version": "0.1.0",
   "description": "plugin for ned with react",
-  "main":"dist/index.js",
   "private": true,
   "dependencies": {
     "jquery": "^3.1.1",

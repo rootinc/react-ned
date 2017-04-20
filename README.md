@@ -18,7 +18,7 @@ this.nedDictionary = new NedDictionary({
 where urls is a hash of the languages, and [link] paths to the ned json file, either live or local.
 
 Be sure to include the dictionary:
-`import NedDictionary from 'ned/NedDictionary';`
+`import NedDictionary from 'react-ned/NedDictionary';`
 
 ### ned
 
@@ -41,6 +41,9 @@ Ned can pass any normal attributes down, like className, value, etc.  Simply do:
 ```
 <Ned textId="2" className="rabbits" />
 ```
+
+Be sure to include the dictionary:
+`import Ned from 'react-ned/Ned';`
 
 ### other properties
 
