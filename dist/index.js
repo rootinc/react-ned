@@ -19967,7 +19967,6 @@ exports.default = NedDictionary;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Ned = exports.NedDictionary = undefined;
 
 var _NedDictionary = __webpack_require__(82);
 
@@ -19979,8 +19978,10 @@ var _Ned2 = _interopRequireDefault(_Ned);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.NedDictionary = _NedDictionary2.default;
-exports.Ned = _Ned2.default;
+exports.default = {
+  NedDictionary: _NedDictionary2.default,
+  Ned: _Ned2.default
+};
 
 /***/ }),
 /* 84 */
