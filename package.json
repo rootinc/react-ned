@@ -4,7 +4,7 @@
   "description": "plugin for ned with react",
   "private": true,
   "scripts": {
-    "build": "webpack -p"
+    "postinstall": "webpack"
   },
   "dependencies": {
     "jquery": "^3.1.1",
