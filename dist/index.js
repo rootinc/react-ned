@@ -19978,10 +19978,14 @@ var _Ned2 = _interopRequireDefault(_Ned);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+console.log("YO DOG", _NedDictionary2.default, _Ned2.default);
+
 var NedWrapper = {
   NedDictionary: _NedDictionary2.default,
   Ned: _Ned2.default
 };
+
+console.log("YO CAT", NedWrapper);
 
 exports.default = NedWrapper;
 
