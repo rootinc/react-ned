@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 
-export default class Ned extends Component {
+export class Ned extends Component {
   constructor() {
     super();
 
