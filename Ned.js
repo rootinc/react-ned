@@ -9,11 +9,9 @@ export default class Ned extends Component {
     this.state = {
       text:"",
     };
-
-    this.getNedFromProps = this.getNedFromProps.bind(this);
   }
 
-  getNedFromProps() {
+  getNedFromProps = () => {
     if (this.props.format)
     {
       this.setState({
