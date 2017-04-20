@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import $ from 'jquery';
+var React = require('react');
+var Component = React.Component;
+var ReactDOM = require('react-dom');
+var $ = require('jquery');
 
 class Ned extends Component {
   constructor() {
@@ -9,9 +10,11 @@ class Ned extends Component {
     this.state = {
       text:"",
     };
+
+    this.getNedFromProps = this.getNedFromProps.bind(this);
   }
 
-  getNedFromProps = () => {
+  getNedFromProps() {
     if (this.props.format)
     {
       this.setState({
@@ -52,17 +55,8 @@ class Ned extends Component {
 
     var ElementType = this.props.inputType || "span";
 
-    if (this.props.format)
-    {
-      return (
-        <ElementType {...props} dangerouslySetInnerHTML={{__html:text}}></ ElementType>
-      )
-    }
-    else
-    {
-      return (
-        <ElementType {...props}>{text}</ ElementType>
-      )
-    }
+    return React.createElement(ElementType,props,text);
   }
 }
+
+module.exports = Ned;

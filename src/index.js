@@ -1,9 +1,7 @@
-import NedDictionary from './NedDictionary';
-import Ned from './Ned';
+var NedDictionary = require('./NedDictionary');
+var Ned = require('./Ned');
 
-const NedWrapper = {
+module.exports = {
   NedDictionary,
   Ned
 }
-
-module.exports = NedWrapper;

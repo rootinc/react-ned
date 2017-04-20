@@ -1,4 +1,4 @@
-import $ from 'jquery';
+var $ = require('jquery');
 
 class NedDictionary {
   constructor(properties) {
@@ -14,24 +14,31 @@ class NedDictionary {
     this.ready = false;
 
     this.fetchAll(properties.urls);
+
+    this.getLanguage = this.getLanguage.bind(this);
+    this.setLanguage = this.setLanguage.bind(this);
+    this.getHTML = this.getHTML.bind(this);
+    this.getText = this.getText.bind(this);
+    this.fetchAll = this.fetchAll.bind(this);
+    this.fetchData = this.fetchData.bind(this);
   }
 
-  getLanguage = () => {
+  getLanguage() {
     return this.currentLanguage;
   }
 
-  setLanguage = (lang) => {
+  setLanguage(lang) {
     this.currentLanguage = lang;
     $("*").trigger("language-changed");
   }
 
-  getHTML = (lang,textId) => {
+  getHTML(lang,textId) {
     return this.data[lang].find(function(item){
       return item.id === textId;
     }).text;
   }
 
-  getText = (lang,textId) => {
+  getText(lang,textId) {
     var html = this.getHTML(lang,textId);
 
     var $div = $("<div/>");
@@ -40,7 +47,7 @@ class NedDictionary {
     return $div.text();
   }
 
-  fetchAll = (urls) => {
+  fetchAll(urls) {
     this.count = 0;
     this.total = Object.keys(urls).length;
 
@@ -50,7 +57,7 @@ class NedDictionary {
     }
   }
 
-  fetchData = (lang,url) => {
+  fetchData(lang,url) {
     var that = this;
 
     $.ajax({
@@ -72,3 +79,5 @@ class NedDictionary {
     });
   }
 }
+
+module.exports = NedDictionary;
