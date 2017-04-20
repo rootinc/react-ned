@@ -3,5 +3,5 @@ import Ned from './Ned';
 
 export default {
   NedDictionary,
-  Ned,
+  Ned
 }
