@@ -1,7 +1,9 @@
 import NedDictionary from './NedDictionary';
 import Ned from './Ned';
 
-export {
+const NedWrapper = {
   NedDictionary,
   Ned
 }
+
+export default NedWrapper

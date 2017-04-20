@@ -19766,6 +19766,10 @@ module.exports = getIteratorFn;
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -19859,12 +19863,18 @@ var Ned = function (_Component) {
   return Ned;
 }(_react.Component);
 
+exports.default = Ned;
+
 /***/ }),
 /* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 
 var _jquery = __webpack_require__(53);
 
@@ -19945,6 +19955,8 @@ var NedDictionary = function NedDictionary(properties) {
   this.fetchAll(properties.urls);
 };
 
+exports.default = NedDictionary;
+
 /***/ }),
 /* 83 */
 /***/ (function(module, exports, __webpack_require__) {
@@ -19955,7 +19967,6 @@ var NedDictionary = function NedDictionary(properties) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Ned = exports.NedDictionary = undefined;
 
 var _NedDictionary = __webpack_require__(82);
 
@@ -19967,8 +19978,12 @@ var _Ned2 = _interopRequireDefault(_Ned);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-exports.NedDictionary = _NedDictionary2.default;
-exports.Ned = _Ned2.default;
+var NedWrapper = {
+  NedDictionary: _NedDictionary2.default,
+  Ned: _Ned2.default
+};
+
+exports.default = NedWrapper;
 
 /***/ }),
 /* 84 */
