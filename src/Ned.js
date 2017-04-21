@@ -1,20 +1,15 @@
 var React = require('react');
-var Component = React.Component;
 var ReactDOM = require('react-dom');
 var $ = require('jquery');
 
-class Ned extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      text:"",
+var Ned = React.createClass({
+  getDefaultProps:function() {
+    return {
+      text:""
     };
+  },
 
-    this.getNedFromProps = this.getNedFromProps.bind(this);
-  }
-
-  getNedFromProps() {
+  getNedFromProps:function() {
     if (this.props.format)
     {
       this.setState({
@@ -27,9 +22,9 @@ class Ned extends Component {
         text:window.ned.NedDictionary.getText(window.ned.NedDictionary.getLanguage(),this.props.textId)
       });
     } 
-  }
+  },
 
-  componentDidMount() {
+  componentDidMount:function() {
     var that = this;
 
     if (window.ned.NedDictionary.ready)
@@ -41,9 +36,9 @@ class Ned extends Component {
     $(ReactDOM.findDOMNode(this)).on("ned-loaded language-changed",function(){
       that.getNedFromProps();
     });
-  }
+  },
 
-  render() {
+  render:function() {
     var props = JSON.parse(JSON.stringify(this.props));
 
     //remove all custom ned stuff
@@ -65,6 +60,6 @@ class Ned extends Component {
       return React.createElement(ElementType,props,text);
     }
   }
-}
+});
 
 module.exports = Ned;

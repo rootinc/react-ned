@@ -1,53 +1,44 @@
 var $ = require('jquery');
 
-class NedDictionary {
-  constructor(properties) {
-    window.ned = {};
-    window.ned.NedDictionary = this;
+function NedDictionary(properties) {
+  window.ned = {};
+  window.ned.NedDictionary = this;
 
-    this.data = {};
+  this.data = {};
 
-    this.count = 0;
-    this.total = 0;
+  this.count = 0;
+  this.total = 0;
 
-    this.currentLanguage = properties.language || "en";
-    this.ready = false;
+  this.currentLanguage = properties.language || "en";
+  this.ready = false;
 
-    this.fetchAll(properties.urls);
+  this.fetchAll(properties.urls);
 
-    this.getLanguage = this.getLanguage.bind(this);
-    this.setLanguage = this.setLanguage.bind(this);
-    this.getHTML = this.getHTML.bind(this);
-    this.getText = this.getText.bind(this);
-    this.fetchAll = this.fetchAll.bind(this);
-    this.fetchData = this.fetchData.bind(this);
-  }
-
-  getLanguage() {
+  this.getLanguage = function() {
     return this.currentLanguage;
-  }
+  };
 
-  setLanguage(lang) {
+  this.setLanguage(lang) = function() {
     this.currentLanguage = lang;
     $("*").trigger("language-changed");
-  }
+  };
 
-  getHTML(lang,textId) {
+  this.getHTML = function(lang,textId) {
     return this.data[lang].find(function(item){
       return item.id === textId;
     }).text;
-  }
+  };
 
-  getText(lang,textId) {
+  this.getText = function(lang,textId) {
     var html = this.getHTML(lang,textId);
 
     var $div = $("<div/>");
     $div.html(html);
 
     return $div.text();
-  }
+  };
 
-  fetchAll(urls) {
+  this.fetchAll = function(urls) {
     this.count = 0;
     this.total = Object.keys(urls).length;
 
@@ -55,9 +46,9 @@ class NedDictionary {
     {
       this.fetchData(lang,urls[lang]);
     }
-  }
+  };
 
-  fetchData(lang,url) {
+  this.fetchData = function(lang,url) {
     var that = this;
 
     $.ajax({
@@ -77,7 +68,7 @@ class NedDictionary {
     .fail((err)=>{
       console.log(err)
     });
-  }
+  };
 }
 
 module.exports = NedDictionary;
