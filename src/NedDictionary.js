@@ -12,8 +12,6 @@ function NedDictionary(properties) {
   this.currentLanguage = properties.language || "en";
   this.ready = false;
 
-  this.fetchAll(properties.urls);
-
   this.getLanguage = function() {
     return this.currentLanguage;
   };
@@ -69,6 +67,8 @@ function NedDictionary(properties) {
       console.log(err)
     });
   };
+
+  this.fetchAll(properties.urls);
 }
 
 module.exports = NedDictionary;
