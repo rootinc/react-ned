@@ -55,7 +55,7 @@ function NedDictionary(properties) {
       type: "GET",
       url: url
     })
-    .done((response)=>{
+    .done(function(response){
       that.data[lang] = JSON.parse(response);
 
       that.count ++;
@@ -65,7 +65,7 @@ function NedDictionary(properties) {
         that.ready = true;
       }
     })
-    .fail((err)=>{
+    .fail(function(err){
       console.log(err)
     });
   };
