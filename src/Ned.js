@@ -3,7 +3,7 @@ var ReactDOM = require('react-dom');
 var $ = require('jquery');
 
 var Ned = React.createClass({
-  getDefaultProps:function() {
+  getInitialState:function() {
     return {
       text:""
     };
