@@ -18,7 +18,7 @@ function NedDictionary(properties) {
     return this.currentLanguage;
   };
 
-  this.setLanguage(lang) = function() {
+  this.setLanguage = function(lang) {
     this.currentLanguage = lang;
     $("*").trigger("language-changed");
   };
