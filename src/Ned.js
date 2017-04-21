@@ -57,9 +57,8 @@ class Ned extends Component {
 
     if (this.props.format)
     {
-      var element = React.createElement(ElementType,props);
-      element.dangerouslySetInnerHTML(text);
-      return element;
+      props.dangerouslySetInnerHTML = { __html: text };
+      return React.createElement(ElementType,props);
     }
     else
     {
