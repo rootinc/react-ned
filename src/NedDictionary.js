@@ -22,9 +22,14 @@ function NedDictionary(properties) {
   };
 
   this.getHTML = function(lang,textId) {
-    return this.data[lang].find(function(item){
-      return item.id === textId;
-    }).text;
+    for (var i=0; i<this.data[lang].length; i++)
+    {
+      var item = this.data[lang][i];
+      if (item.id === textId)
+      {
+        return item.text; 
+      }
+    }
   };
 
   this.getText = function(lang,textId) {
