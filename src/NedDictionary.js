@@ -4,12 +4,13 @@ function NedDictionary(properties) {
   window.ned = {};
   window.ned.NedDictionary = this;
 
+  this.baseUrl = "https://ned-production.herokuapp.com/api/project/";
+
+  this.projectId = properties.projectId;
+
   this.data = {};
 
-  this.count = 0;
-  this.total = 0;
-
-  this.currentLanguage = properties.language || "en";
+  this.currentLanguage = "";
   this.ready = false;
 
   this.getLanguage = function() {
@@ -18,7 +19,15 @@ function NedDictionary(properties) {
 
   this.setLanguage = function(lang) {
     this.currentLanguage = lang;
-    $("*").trigger("language-changed");
+
+    if (!this.data[lang])
+    {
+      this.fetchData(lang);
+    }
+    else
+    {
+      $("*").trigger("language-changed");
+    }
   };
 
   this.getHTML = function(lang,textId) {
@@ -41,39 +50,27 @@ function NedDictionary(properties) {
     return $div.text();
   };
 
-  this.fetchAll = function(urls) {
-    this.count = 0;
-    this.total = Object.keys(urls).length;
-
-    for (var lang in urls)
-    {
-      this.fetchData(lang,urls[lang]);
-    }
-  };
-
-  this.fetchData = function(lang,url) {
+  this.fetchData = function(lang) {
     var that = this;
+
+    that.ready = false;
 
     $.ajax({
       type: "GET",
-      url: url
+      url: that.baseUrl + this.projectId + "/export/json/" + lang + "/"
     })
     .done(function(response){
       that.data[lang] = JSON.parse(response);
 
-      that.count ++;
-      if (that.count === that.total)
-      {
-        $("*").trigger("ned-loaded");
-        that.ready = true;
-      }
+      $("*").trigger("ned-loaded");
+      that.ready = true;
     })
     .fail(function(err){
       console.log(err)
     });
   };
 
-  this.fetchAll(properties.urls);
+  this.setLanguage("en");
 }
 
 module.exports = NedDictionary;
