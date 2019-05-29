@@ -57,7 +57,7 @@ function NedDictionary(properties) {
 
     $.ajax({
       type: "GET",
-      url: that.baseUrl + this.projectId + "/export/json/" + lang + "/"
+      url: that.baseUrl + this.projectId + "/export/json/" + lang
     })
     .done(function(response){
       that.data[lang] = JSON.parse(response);
